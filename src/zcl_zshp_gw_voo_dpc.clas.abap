@@ -1,4 +1,4 @@
-class ZCL_ZSHP_GW_FLIGHT_DPC definition
+class ZCL_ZSHP_GW_VOO_DPC definition
   public
   inheriting from /IWBEP/CL_MGW_PUSH_ABS_DATA
   abstract
@@ -33,7 +33,7 @@ protected section.
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
       !IO_DATA_PROVIDER type ref to /IWBEP/IF_MGW_ENTRY_PROVIDER optional
     exporting
-      !ER_ENTITY type ZCL_ZSHP_GW_FLIGHT_MPC=>TS_SCARR
+      !ER_ENTITY type ZCL_ZSHP_GW_VOO_MPC=>TS_SCARR
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
@@ -58,7 +58,7 @@ protected section.
       !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY optional
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
     exporting
-      !ER_ENTITY type ZCL_ZSHP_GW_FLIGHT_MPC=>TS_SCARR
+      !ER_ENTITY type ZCL_ZSHP_GW_VOO_MPC=>TS_SCARR
       !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_ENTITY_CNTXT
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
@@ -77,7 +77,7 @@ protected section.
       !IV_SEARCH_STRING type STRING
       !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITYSET optional
     exporting
-      !ET_ENTITYSET type ZCL_ZSHP_GW_FLIGHT_MPC=>TT_SCARR
+      !ET_ENTITYSET type ZCL_ZSHP_GW_VOO_MPC=>TT_SCARR
       !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_CONTEXT
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
@@ -92,7 +92,7 @@ protected section.
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
       !IO_DATA_PROVIDER type ref to /IWBEP/IF_MGW_ENTRY_PROVIDER optional
     exporting
-      !ER_ENTITY type ZCL_ZSHP_GW_FLIGHT_MPC=>TS_SCARR
+      !ER_ENTITY type ZCL_ZSHP_GW_VOO_MPC=>TS_SCARR
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
@@ -106,7 +106,7 @@ protected section.
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
       !IO_DATA_PROVIDER type ref to /IWBEP/IF_MGW_ENTRY_PROVIDER optional
     exporting
-      !ER_ENTITY type ZCL_ZSHP_GW_FLIGHT_MPC=>TS_SPFLI
+      !ER_ENTITY type ZCL_ZSHP_GW_VOO_MPC=>TS_SPFLI
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
@@ -131,7 +131,7 @@ protected section.
       !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY optional
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
     exporting
-      !ER_ENTITY type ZCL_ZSHP_GW_FLIGHT_MPC=>TS_SPFLI
+      !ER_ENTITY type ZCL_ZSHP_GW_VOO_MPC=>TS_SPFLI
       !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_ENTITY_CNTXT
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
@@ -150,7 +150,7 @@ protected section.
       !IV_SEARCH_STRING type STRING
       !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITYSET optional
     exporting
-      !ET_ENTITYSET type ZCL_ZSHP_GW_FLIGHT_MPC=>TT_SPFLI
+      !ET_ENTITYSET type ZCL_ZSHP_GW_VOO_MPC=>TT_SPFLI
       !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_CONTEXT
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
@@ -165,7 +165,7 @@ protected section.
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
       !IO_DATA_PROVIDER type ref to /IWBEP/IF_MGW_ENTRY_PROVIDER optional
     exporting
-      !ER_ENTITY type ZCL_ZSHP_GW_FLIGHT_MPC=>TS_SPFLI
+      !ER_ENTITY type ZCL_ZSHP_GW_VOO_MPC=>TS_SPFLI
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
@@ -177,21 +177,21 @@ ENDCLASS.
 
 
 
-CLASS ZCL_ZSHP_GW_FLIGHT_DPC IMPLEMENTATION.
+CLASS ZCL_ZSHP_GW_VOO_DPC IMPLEMENTATION.
 
 
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~CREATE_ENTITY.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_CRT_ENTITY_BASE
-*&* This class has been generated on 09.08.2024 13:27:09 in client 250
+*&* This class has been generated on 11.08.2024 16:52:25 in client 250
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
-*&*   generated methods inside the DPC provider subclass - ZCL_ZSHP_GW_FLIGHT_DPC_EXT
+*&*   generated methods inside the DPC provider subclass - ZCL_ZSHP_GW_VOO_DPC_EXT
 *&-----------------------------------------------------------------------------------------------*
 
- DATA scarrset_create_entity TYPE zcl_zshp_gw_flight_mpc=>ts_scarr.
- DATA spfliset_create_entity TYPE zcl_zshp_gw_flight_mpc=>ts_spfli.
+ DATA scarrset_create_entity TYPE zcl_zshp_gw_voo_mpc=>ts_scarr.
+ DATA spfliset_create_entity TYPE zcl_zshp_gw_voo_mpc=>ts_spfli.
  DATA lv_entityset_name TYPE string.
 
 lv_entityset_name = io_tech_request_context->get_entity_set_name( ).
@@ -262,11 +262,11 @@ ENDCASE.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~DELETE_ENTITY.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_DEL_ENTITY_BASE
-*&* This class has been generated on 09.08.2024 13:27:09 in client 250
+*&* This class has been generated on 11.08.2024 16:52:25 in client 250
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
-*&*   generated methods inside the DPC provider subclass - ZCL_ZSHP_GW_FLIGHT_DPC_EXT
+*&*   generated methods inside the DPC provider subclass - ZCL_ZSHP_GW_VOO_DPC_EXT
 *&-----------------------------------------------------------------------------------------------*
 
  DATA lv_entityset_name TYPE string.
@@ -318,15 +318,15 @@ CASE lv_entityset_name.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~GET_ENTITY.
 *&-----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_GETENTITY_BASE
-*&* This class has been generated  on 09.08.2024 13:27:09 in client 250
+*&* This class has been generated  on 11.08.2024 16:52:25 in client 250
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
-*&*   generated methods inside the DPC provider subclass - ZCL_ZSHP_GW_FLIGHT_DPC_EXT
+*&*   generated methods inside the DPC provider subclass - ZCL_ZSHP_GW_VOO_DPC_EXT
 *&-----------------------------------------------------------------------------------------------*
 
- DATA scarrset_get_entity TYPE zcl_zshp_gw_flight_mpc=>ts_scarr.
- DATA spfliset_get_entity TYPE zcl_zshp_gw_flight_mpc=>ts_spfli.
+ DATA scarrset_get_entity TYPE zcl_zshp_gw_voo_mpc=>ts_scarr.
+ DATA spfliset_get_entity TYPE zcl_zshp_gw_voo_mpc=>ts_spfli.
  DATA lv_entityset_name TYPE string.
  DATA lr_entity TYPE REF TO data.       "#EC NEEDED
 
@@ -408,14 +408,14 @@ CASE lv_entityset_name.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~GET_ENTITYSET.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TMP_ENTITYSET_BASE
-*&* This class has been generated on 09.08.2024 13:27:09 in client 250
+*&* This class has been generated on 11.08.2024 16:52:25 in client 250
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
-*&*   generated methods inside the DPC provider subclass - ZCL_ZSHP_GW_FLIGHT_DPC_EXT
+*&*   generated methods inside the DPC provider subclass - ZCL_ZSHP_GW_VOO_DPC_EXT
 *&-----------------------------------------------------------------------------------------------*
- DATA scarrset_get_entityset TYPE zcl_zshp_gw_flight_mpc=>tt_scarr.
- DATA spfliset_get_entityset TYPE zcl_zshp_gw_flight_mpc=>tt_spfli.
+ DATA scarrset_get_entityset TYPE zcl_zshp_gw_voo_mpc=>tt_scarr.
+ DATA spfliset_get_entityset TYPE zcl_zshp_gw_voo_mpc=>tt_spfli.
  DATA lv_entityset_name TYPE string.
 
 lv_entityset_name = io_tech_request_context->get_entity_set_name( ).
@@ -504,15 +504,15 @@ CASE lv_entityset_name.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~UPDATE_ENTITY.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_UPD_ENTITY_BASE
-*&* This class has been generated on 09.08.2024 13:27:09 in client 250
+*&* This class has been generated on 11.08.2024 16:52:25 in client 250
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
-*&*   generated methods inside the DPC provider subclass - ZCL_ZSHP_GW_FLIGHT_DPC_EXT
+*&*   generated methods inside the DPC provider subclass - ZCL_ZSHP_GW_VOO_DPC_EXT
 *&-----------------------------------------------------------------------------------------------*
 
- DATA scarrset_update_entity TYPE zcl_zshp_gw_flight_mpc=>ts_scarr.
- DATA spfliset_update_entity TYPE zcl_zshp_gw_flight_mpc=>ts_spfli.
+ DATA scarrset_update_entity TYPE zcl_zshp_gw_voo_mpc=>ts_scarr.
+ DATA spfliset_update_entity TYPE zcl_zshp_gw_voo_mpc=>ts_spfli.
  DATA lv_entityset_name TYPE string.
  DATA lr_entity TYPE REF TO data. "#EC NEEDED
 
@@ -725,76 +725,18 @@ lo_logger = /iwbep/if_mgw_conv_srv_runtime~get_logger( ).
 
 
   method SCARRSET_GET_ENTITY.
-
-DATA: lv_carrid TYPE scarr-carrid.
-
-    IF line_exists( it_key_tab[ name = 'Carrid' ] ).
-      lv_carrid = it_key_tab[ name = 'Carrid' ]-value.
-    ELSE.
-      RAISE EXCEPTION TYPE /iwbep/cx_mgw_tech_exception.
-    ENDIF.
-
-
-    SELECT SINGLE * FROM scarr
-      INTO @er_entity
-      WHERE carrid EQ @lv_carrid.
-
+  RAISE EXCEPTION TYPE /iwbep/cx_mgw_not_impl_exc
+    EXPORTING
+      textid = /iwbep/cx_mgw_not_impl_exc=>method_not_implemented
+      method = 'SCARRSET_GET_ENTITY'.
   endmethod.
 
 
   method SCARRSET_GET_ENTITYSET.
-
-*  RAISE EXCEPTION TYPE /iwbep/cx_mgw_not_impl_exc
-*    EXPORTING
-*      textid = /iwbep/cx_mgw_not_impl_exc=>method_not_implemented
-*      method = 'SCARRSET_GET_ENTITYSET'.
-
-* Tratamento manual de parâmetros
-    DATA: lr_carrid   TYPE RANGE OF scarr-carrid,
-          lr_carrname TYPE RANGE OF scarr-carrname,
-          lr_currcode TYPE RANGE OF scarr-currcode.
-
-* IT_FILTER_SELECT_OPTIONS
-    LOOP AT it_filter_select_options INTO DATA(ls_filters).
-
-      CASE ls_filters-property.
-        WHEN 'Carrid'.
-          lr_carrid   = VALUE #( FOR carrid   IN ls_filters-select_options ( CORRESPONDING #( carrid ) ) ).
-        WHEN 'Currname'.
-          lr_carrname = VALUE #( FOR carrname IN ls_filters-select_options ( CORRESPONDING #( carrname ) ) ).
-        WHEN 'Currcode'.
-          lr_currcode = VALUE #( FOR currcode IN ls_filters-select_options ( CORRESPONDING #( currcode ) ) ).
-        WHEN OTHERS.
-      ENDCASE.
-
-    ENDLOOP.
-
-    SELECT * FROM scarr
-      INTO TABLE @et_entityset
-      WHERE carrid IN @lr_carrid
-      AND currcode IN @lr_currcode.
-
-*    /iwbep/cl_mgw_data_util=>filtering(
-*      EXPORTING
-*        it_select_options = it_filter_select_options
-*      CHANGING
-*        ct_data           = et_entityset
-*    ).
-
-    /iwbep/cl_mgw_data_util=>paging(
-      EXPORTING
-        is_paging = is_paging                 " paging structure
-      CHANGING
-        ct_data   = et_entityset
-    ).
-    /iwbep/cl_mgw_data_util=>orderby(
-      EXPORTING
-        it_order = it_order                 " the sorting order
-      CHANGING
-        ct_data  = et_entityset
-    ).
-
-
+  RAISE EXCEPTION TYPE /iwbep/cx_mgw_not_impl_exc
+    EXPORTING
+      textid = /iwbep/cx_mgw_not_impl_exc=>method_not_implemented
+      method = 'SCARRSET_GET_ENTITYSET'.
   endmethod.
 
 
@@ -823,83 +765,18 @@ DATA: lv_carrid TYPE scarr-carrid.
 
 
   method SPFLISET_GET_ENTITY.
-
-*  RAISE EXCEPTION TYPE /iwbep/cx_mgw_not_impl_exc
-*    EXPORTING
-*      textid = /iwbep/cx_mgw_not_impl_exc=>method_not_implemented
-*      method = 'SPFLISET_GET_ENTITY'.
-
- DATA: lv_carrid TYPE spfli-carrid,
-          lv_connid TYPE spfli-connid,
-          ls_spfli  TYPE spfli.
-
-    IF line_exists( it_key_tab[ name = 'Carrid' ] ).
-      lv_carrid = it_key_tab[ name = 'Carrid' ]-value.
-    ELSE.
-      RAISE EXCEPTION TYPE /iwbep/cx_mgw_tech_exception.
-    ENDIF.
-    IF line_exists( it_key_tab[ name = 'Connid' ] ).
-      lv_connid = it_key_tab[ name = 'Connid' ]-value.
-    ELSE.
-      RAISE EXCEPTION TYPE /iwbep/cx_mgw_tech_exception.
-    ENDIF.
-
-    SELECT SINGLE * FROM spfli
-      INTO @ls_spfli
-      WHERE carrid EQ @lv_carrid
-      AND connid EQ @lv_connid.
-
-    MOVE-CORRESPONDING ls_spfli TO er_entity.
-
-
+  RAISE EXCEPTION TYPE /iwbep/cx_mgw_not_impl_exc
+    EXPORTING
+      textid = /iwbep/cx_mgw_not_impl_exc=>method_not_implemented
+      method = 'SPFLISET_GET_ENTITY'.
   endmethod.
 
 
   method SPFLISET_GET_ENTITYSET.
-
-*  RAISE EXCEPTION TYPE /iwbep/cx_mgw_not_impl_exc
-*    EXPORTING
-*      textid = /iwbep/cx_mgw_not_impl_exc=>method_not_implemented
-*      method = 'SPFLISET_GET_ENTITYSET'.
-
-DATA: lr_carrid TYPE RANGE OF spfli-carrid,
-          lr_connid TYPE RANGE OF spfli-connid.
-
-    LOOP AT it_filter_select_options ASSIGNING FIELD-SYMBOL(<fs_filter>).
-
-      CASE <fs_filter>-property.
-        WHEN 'Carrid'.
-          lr_carrid = VALUE #( FOR carrid IN <fs_filter>-select_options ( CORRESPONDING #( carrid ) ) ).
-
-        WHEN 'Connid'.
-          lr_connid = VALUE #( FOR connid IN <fs_filter>-select_options ( CORRESPONDING #( connid ) ) ).
-
-        WHEN OTHERS.
-      ENDCASE.
-
-    ENDLOOP.
-
-    SELECT * FROM spfli
-      INTO TABLE @DATA(lt_spfli)
-      WHERE carrid IN @lr_carrid
-        AND connid IN @lr_connid.
-
-    MOVE-CORRESPONDING lt_spfli TO et_entityset.
-
-    /iwbep/cl_mgw_data_util=>paging(
-      EXPORTING
-        is_paging = is_paging
-      CHANGING
-        ct_data   = et_entityset
-    ).
-    /iwbep/cl_mgw_data_util=>orderby(
-      EXPORTING
-        it_order = it_order
-      CHANGING
-        ct_data  = et_entityset
-    ).
-
-
+  RAISE EXCEPTION TYPE /iwbep/cx_mgw_not_impl_exc
+    EXPORTING
+      textid = /iwbep/cx_mgw_not_impl_exc=>method_not_implemented
+      method = 'SPFLISET_GET_ENTITYSET'.
   endmethod.
 
 

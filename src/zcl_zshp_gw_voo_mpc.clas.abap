@@ -1,4 +1,4 @@
-class ZCL_ZSHP_GW_FLIGHT_MPC definition
+class ZCL_ZSHP_GW_VOO_MPC definition
   public
   inheriting from /IWBEP/CL_MGW_PUSH_ABS_MODEL
   create public .
@@ -54,7 +54,7 @@ ENDCLASS.
 
 
 
-CLASS ZCL_ZSHP_GW_FLIGHT_MPC IMPLEMENTATION.
+CLASS ZCL_ZSHP_GW_VOO_MPC IMPLEMENTATION.
 
 
   method DEFINE.
@@ -66,7 +66,7 @@ CLASS ZCL_ZSHP_GW_FLIGHT_MPC IMPLEMENTATION.
 *&                                                                     &*
 *&---------------------------------------------------------------------*
 
-model->set_schema_namespace( 'ZSHP_GW_FLIGHT_SRV' ).
+model->set_schema_namespace( 'ZSHP_GW_VOO_SRV' ).
 
 define_scarr( ).
 define_spfli( ).
@@ -102,7 +102,7 @@ lo_nav_property   type ref to /iwbep/if_mgw_odata_nav_prop.                     
                             iv_association_name = 'ScarrToSpfli' "#EC NOTEXT
                             iv_left_type        = 'Scarr' "#EC NOTEXT
                             iv_right_type       = 'Spfli' "#EC NOTEXT
-                            iv_right_card       = '1' "#EC NOTEXT
+                            iv_right_card       = 'N' "#EC NOTEXT
                             iv_left_card        = '1'  "#EC NOTEXT
                             iv_def_assoc_set    = abap_false ). "#EC NOTEXT
 * Referential constraint for association - ScarrToSpfli
@@ -464,7 +464,7 @@ lo_entity_set->set_filter_required( abap_false ).
 *&---------------------------------------------------------------------*
 
 
-  CONSTANTS: lc_gen_date_time TYPE timestamp VALUE '20240809112706'.                  "#EC NOTEXT
+  CONSTANTS: lc_gen_date_time TYPE timestamp VALUE '20240811145221'.                  "#EC NOTEXT
   rv_last_modified = super->get_last_modified( ).
   IF rv_last_modified LT lc_gen_date_time.
     rv_last_modified = lc_gen_date_time.
